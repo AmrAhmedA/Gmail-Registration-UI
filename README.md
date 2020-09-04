@@ -8,4 +8,6 @@ This project is an attempt to create the Gmail registration page UI using React.
 * [Bootstrap](https://getbootstrap.com/) - Front-end open source toolkit
 * [Material UI](https://material-ui.com/) - React components for faster and easier web development.
 
-
+# Google mail register page UI
+This screen-shot was taken in Sept-2020 
+<img src="https://github.com/AmrAhmedA/Gmail-Registration-UI/blob/master/src/images/GmailRegister.jpg?raw=true" width="800" height="600">
