@@ -11,8 +11,8 @@ const useStyles = makeStyles((theme) => ({
     "& > *": {
       // margin: theme.spacing(5),
       padding: theme.spacing(3),
-      width: theme.spacing(90),
-      height: theme.spacing(65),
+      // width: theme.spacing(90),
+      // height: theme.spacing(65),
     },
   },
 }));
@@ -25,7 +25,9 @@ function App() {
     direction="column"
     alignItems="center"
     justify="center"
-    style={{ minHeight: '100vh' }}>
+    style={{ minHeight: '100vh' }
+      // spacing={5}
+    }>
 
     <Paper variant="outlined" elevation={2} className={classes.root}>
       <RegisterForm />

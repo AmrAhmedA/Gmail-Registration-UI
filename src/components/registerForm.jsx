@@ -25,30 +25,35 @@ const RegisterForm = () => {
   return (
     // <Paper className={classes.root}>
     <form className={classes.root} noValidate autoComplete="off">
-      <Grid container>
-        <Grid item xs={6}>
+      <Grid container spacing={2}>
+        <Grid item xs={3} sm={3}>
+          <FormControl fullWidth>
+            <Input
+              id="firstname"
+              name="firstname"
+              label="Firstname"
+              helperText="Write your first name"
+            />
+          </FormControl>
+        </Grid>
+        <Grid item xs={3} sm={3}>
+          <FormControl fullWidth>
+            <Input
+              id="secondname"
+              name="secondname"
+              label="Secondname"
+              helperText="Write your second name"
+            />
+          </FormControl>
+        </Grid>
+        <Grid item xs={6} sm={6}></Grid>
+        <Grid item xs={6} sm={6}>
           <FormControl fullWidth>
             <Input
               id="username"
               name="username"
               label="Username"
-              helperText="Write your first name"
-            />
-          </FormControl>
-          <FormControl>
-            <Input
-              id="username"
-              name="username"
-              label="Username"
-              helperText="Write your first name"
-            />
-          </FormControl>
-          <FormControl>
-            <Input
-              id="username"
-              name="username"
-              label="Username"
-              helperText="Write your first name"
+              helperText="You can use letters, numbers &amp; periods"
             />
           </FormControl>
         </Grid>
