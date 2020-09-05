@@ -1,55 +1,36 @@
 import React from 'react';
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.css';
+import RegisterForm from "./components/registerForm"
+import Paper from "@material-ui/core/Paper";
 import { makeStyles } from '@material-ui/core/styles';
-import TextField from '@material-ui/core/TextField';
-import Paper from '@material-ui/core/Paper';
-import Input from "./components/input"
-
+import Grid from "@material-ui/core/Grid";
 
 const useStyles = makeStyles((theme) => ({
   root: {
-    '& > *': {
-      margin: theme.spacing(8),
-      width: '25ch',
+    "& > *": {
+      // margin: theme.spacing(5),
+      padding: theme.spacing(3),
+      width: theme.spacing(90),
+      height: theme.spacing(65),
     },
   },
 }));
 
-
 function App() {
   const classes = useStyles();
 
-  return (
-    <div className="container" style={{
-      display: "flex",
-      justifyContent: "center",
-      alignItems: "center",
-    }}>
-      <Paper>
-        <div className="row">
-          <div className="col-sm">
-            <form className={classes.root} noValidate autoComplete="off">
-              <Input id="username" name="username" placeholder="Username" label="Username" helperText="Write your first name" />
-            </form>
-          </div>
-          <div className="col-sm">
-            <form className={classes.root} noValidate autoComplete="off">
-              <TextField size="small" id="outlined-basic" label="Username" placeholder="AmrAhmed" variant="outlined" helperText="Incorrect entry."
-              />
-            </form>
-          </div>
-          <div className="col-sm">
-            <form className={classes.root} noValidate autoComplete="off">
-              {/* 
-            <TextField size="small" id="outlined-basic" label="Username" placeholder="AmrAhmed" variant="outlined" helperText="Incorrect entry."
-            /> */}
-            </form>
-          </div>
-        </div>
-      </Paper>
-    </div>
-  );
+  return (<Grid container
+    spacing={0}
+    direction="column"
+    alignItems="center"
+    justify="center"
+    style={{ minHeight: '100vh' }}>
+
+    <Paper variant="outlined" elevation={2} className={classes.root}>
+      <RegisterForm />
+    </Paper>
+  </Grid>);
 }
 
 export default App;
