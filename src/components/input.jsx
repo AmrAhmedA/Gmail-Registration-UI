@@ -3,11 +3,21 @@ import { TextField } from "@material-ui/core";
 import FormControl from "@material-ui/core/FormControl";
 
 const Input = (props) => {
-  const { label, name, value, id, helperText, placeholder, onChange } = props;
+  const {
+    label,
+    name,
+    value,
+    id,
+    helperText,
+    placeholder,
+    onChange,
+    ...rest
+  } = props;
   return (
     <React.Fragment>
       <FormControl fullWidth>
         <TextField
+          {...rest}
           variant="outlined"
           size="small"
           id={id}
