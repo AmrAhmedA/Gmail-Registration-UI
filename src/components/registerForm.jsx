@@ -8,15 +8,12 @@ import FormControl from "@material-ui/core/FormControl";
 
 const useStyles = makeStyles((theme) => ({
   root: {
-    "& > *": {
-      flexGrow: 1,
-
-      // margin: theme.spacing(3),
-      width: "100%",
-    },
-    margin: {
-      margin: theme.spacing(1),
-    },
+    flexGrow: 1,
+    // margin: theme.spacing(3),
+    width: "100%",
+  },
+  margin: {
+    margin: theme.spacing(2),
   },
 }));
 const RegisterForm = () => {
@@ -25,7 +22,7 @@ const RegisterForm = () => {
   return (
     // <Paper className={classes.root}>
     <form className={classes.root} noValidate autoComplete="off">
-      <Grid container spacing={2}>
+      <Grid container spacing={3} className={classes.margin}>
         <Grid item xs={3} sm={3}>
           <FormControl fullWidth>
             <Input
@@ -42,7 +39,7 @@ const RegisterForm = () => {
               id="secondname"
               name="secondname"
               label="Secondname"
-              helperText="Write your second name"
+              helperText="Write your sun name"
             />
           </FormControl>
         </Grid>
@@ -58,6 +55,26 @@ const RegisterForm = () => {
           </FormControl>
         </Grid>
         <Grid item xs={4}></Grid>
+        <Grid item xs={3} sm={3}>
+          <FormControl fullWidth>
+            <Input
+              id="password"
+              name="password"
+              label="Password"
+              helperText="You can use letters, numbers &amp; periods"
+            />
+          </FormControl>
+        </Grid>
+        <Grid item xs={3} sm={3}>
+          <FormControl fullWidth>
+            <Input
+              id="confirmpassword"
+              name="confirmpassword"
+              label="Confirm"
+              helperText="You can use letters, numbers &amp; periods"
+            />
+          </FormControl>
+        </Grid>
       </Grid>
     </form>
   );
