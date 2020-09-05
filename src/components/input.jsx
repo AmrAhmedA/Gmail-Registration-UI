@@ -1,20 +1,25 @@
 import React from "react";
 import { TextField } from "@material-ui/core";
+import FormControl from "@material-ui/core/FormControl";
 
 const Input = (props) => {
   const { label, name, value, id, helperText, placeholder, onChange } = props;
   return (
-    <TextField
-      variant="outlined"
-      size="small"
-      id={id}
-      name={name}
-      value={value}
-      label={label}
-      placeholder={placeholder}
-      helperText={helperText}
-      onChange={onChange}
-    />
+    <React.Fragment>
+      <FormControl fullWidth>
+        <TextField
+          variant="outlined"
+          size="small"
+          id={id}
+          name={name}
+          value={value}
+          label={label}
+          placeholder={placeholder}
+          helperText={"" || helperText}
+          onChange={onChange}
+        />
+      </FormControl>
+    </React.Fragment>
   );
 };
 
