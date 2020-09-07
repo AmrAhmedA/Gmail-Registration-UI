@@ -8,12 +8,10 @@ import Grid from "@material-ui/core/Grid";
 
 const useStyles = makeStyles((theme) => ({
   root: {
-    "& > *": {
-      // margin: theme.spacing(5),
-      padding: theme.spacing(3),
-      width: theme.spacing(90),
-      height: theme.spacing(65),
-    },
+    // margin: theme.spacing(5),
+    padding: theme.spacing(3),
+    width: theme.spacing(90),
+    height: theme.spacing(65),
   },
 }));
 

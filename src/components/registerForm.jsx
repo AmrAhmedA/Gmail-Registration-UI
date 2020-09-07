@@ -9,6 +9,7 @@ import IconButton from "@material-ui/core/IconButton";
 import Visibility from "@material-ui/icons/Visibility";
 import VisibilityOff from "@material-ui/icons/VisibilityOff";
 import GoogleLogo from "../images/google_PNG19644.png";
+import AccountLogo from "../images/account.svg";
 import InputAdornment from "@material-ui/core/InputAdornment";
 
 const useStyles = makeStyles((theme) => ({
@@ -51,62 +52,85 @@ const RegisterForm = () => {
           <h4> Create your Google Account</h4>
         </div>
       </div>
-      <Grid container spacing={2} className={classes.margin}>
-        <Grid item xs={3} sm={3}>
-          <Input
-            id="firstname"
-            name="firstname"
-            label="Firstname"
-            helperText="Write your first name"
-          />
+      <Grid
+        container
+        // direction="row"
+        // justify="flex-start"
+        // alignItems="center"
+      >
+        <Grid item xs>
+          <Grid container spacing={2} className={classes.margin}>
+            <Grid item xs={6}>
+              <Input
+                id="firstname"
+                name="firstname"
+                label="First name"
+                helperText="Write your first name"
+              />
+            </Grid>
+            <Grid item xs={6}>
+              <Input
+                id="secondname"
+                name="secondname"
+                label="Second name"
+                helperText="Write your sun name"
+              />
+            </Grid>
+
+            <Grid item xs={12}>
+              <Input
+                InputProps={{
+                  endAdornment: (
+                    <InputAdornment position="end">@gmail.com</InputAdornment>
+                  ),
+                }}
+                id="username"
+                name="username"
+                label="Username"
+                helperText="You can use letters, numbers &amp; periods"
+              />
+            </Grid>
+            <Grid item xs={5}>
+              <Input
+                id="password"
+                name="password"
+                label="Password"
+                helperText=""
+              />
+            </Grid>
+            <Grid item xs={5}>
+              <Input
+                id="confirmpassword"
+                name="confirmpassword"
+                label="Confirm"
+                helperText=""
+              />
+            </Grid>
+            <Grid item xs={2}>
+              <IconButton
+                style={{
+                  height: "35px",
+                }}
+                aria-label="toggle password visibility"
+                onClick={handleClickShowPassword}
+                onMouseDown={handleMouseDownPassword}
+              >
+                {true ? <Visibility /> : <VisibilityOff />}
+              </IconButton>
+            </Grid>
+          </Grid>
         </Grid>
-        <Grid item xs={3} sm={3}>
-          <Input
-            id="secondname"
-            name="secondname"
-            label="Secondname"
-            helperText="Write your sun name"
-          />
+        <Grid item xs>
+          <Grid container align="center">
+            <Grid item xs>
+              <img src={AccountLogo} alt="" width={250} />
+              <label>
+                One account. All of Google <br />
+                working for you.
+              </label>
+            </Grid>
+          </Grid>
         </Grid>
-        <Grid item xs={6} sm={6}></Grid>
-        <Grid item xs={6} sm={6}>
-          <Input
-            InputProps={{
-              endAdornment: (
-                <InputAdornment position="end">@gmail.com</InputAdornment>
-              ),
-            }}
-            id="username"
-            name="username"
-            label="Username"
-            helperText="You can use letters, numbers &amp; periods"
-          />
-        </Grid>
-        <Grid item xs={6}></Grid>
-        <Grid item xs={3} sm={3}>
-          <Input id="password" name="password" label="Password" helperText="" />
-        </Grid>
-        <Grid item xs={2} sm={2}>
-          <Input
-            id="confirmpassword"
-            name="confirmpassword"
-            label="Confirm"
-            helperText=""
-          />
-        </Grid>
-        <Grid item xs={1} sm={1}>
-          <IconButton
-            style={{
-              height: "35px",
-            }}
-            aria-label="toggle password visibility"
-            onClick={handleClickShowPassword}
-            onMouseDown={handleMouseDownPassword}
-          >
-            {true ? <Visibility /> : <VisibilityOff />}
-          </IconButton>
-        </Grid>
-        <Grid item xs={6} sm={6}></Grid>
       </Grid>
     </form>
   );
