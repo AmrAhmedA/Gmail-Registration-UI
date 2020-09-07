@@ -12,6 +12,7 @@ import GoogleLogo from "../images/google_PNG19644.png";
 import AccountLogo from "../images/account.svg";
 import InputAdornment from "@material-ui/core/InputAdornment";
 import Button from "@material-ui/core/Button";
+import Typography from "@material-ui/core/Typography";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -126,7 +127,16 @@ const RegisterForm = () => {
                 alignItems="flex-end"
               >
                 <Grid item xs>
-                  <Button href="#text-buttons" color="primary">
+                  <Button
+                    href="#text-buttons"
+                    style={{
+                      textTransform: "none",
+                      padding: "5px 20px ",
+                      textAlign: "center",
+                      fontSize: "15px",
+                    }}
+                    color="primary"
+                  >
                     Sign in instead
                   </Button>
                 </Grid>
@@ -139,7 +149,11 @@ const RegisterForm = () => {
                   >
                     <button
                       className="btn btn-primary"
-                      style={{ padding: "5px 25px " }}
+                      style={{
+                        padding: "5px 25px 8px ",
+                        fontSize: "15px",
+                        textAlign: "center",
+                      }}
                     >
                       Next
                     </button>
