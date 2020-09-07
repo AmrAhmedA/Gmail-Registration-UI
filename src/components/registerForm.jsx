@@ -11,6 +11,7 @@ import VisibilityOff from "@material-ui/icons/VisibilityOff";
 import GoogleLogo from "../images/google_PNG19644.png";
 import AccountLogo from "../images/account.svg";
 import InputAdornment from "@material-ui/core/InputAdornment";
+import Button from "@material-ui/core/Button";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -72,11 +73,10 @@ const RegisterForm = () => {
               <Input
                 id="secondname"
                 name="secondname"
-                label="Second name"
-                helperText="Write your sun name"
+                label="Last name"
+                helperText="Write your last name"
               />
             </Grid>
-
             <Grid item xs={12}>
               <Input
                 InputProps={{
@@ -117,6 +117,35 @@ const RegisterForm = () => {
               >
                 {true ? <Visibility /> : <VisibilityOff />}
               </IconButton>
+            </Grid>
+            <Grid item xs={12}>
+              <Grid
+                container
+                direction="row"
+                justify="flex-end"
+                alignItems="flex-end"
+              >
+                <Grid item xs>
+                  <Button href="#text-buttons" color="primary">
+                    Sign in instead
+                  </Button>
+                </Grid>
+                <Grid item xs>
+                  <Grid
+                    container
+                    direction="row"
+                    justify="flex-end"
+                    alignItems="flex-end"
+                  >
+                    <button
+                      className="btn btn-primary"
+                      style={{ padding: "5px 25px " }}
+                    >
+                      Next
+                    </button>
+                  </Grid>
+                </Grid>
+              </Grid>
             </Grid>
           </Grid>
         </Grid>
