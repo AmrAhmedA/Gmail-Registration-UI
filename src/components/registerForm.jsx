@@ -1,24 +1,25 @@
 import React from "react";
-import { makeStyles } from "@material-ui/core/styles";
-// import TextField from "@material-ui/core/TextField";
-// import Paper from "@material-ui/core/Paper";
-import Input from "./input";
-import Grid from "@material-ui/core/Grid";
-// import FormControl from "@material-ui/core/FormControl";
-import IconButton from "@material-ui/core/IconButton";
+import {
+  makeStyles,
+  Grid,
+  IconButton,
+  InputAdornment,
+  Button,
+  Hidden,
+  withWidth,
+  Paper,
+  Container,
+} from "@material-ui/core";
 import Visibility from "@material-ui/icons/Visibility";
 import VisibilityOff from "@material-ui/icons/VisibilityOff";
+import PropTypes from "prop-types";
+import Input from "./input";
 import GoogleLogo from "../images/google_PNG19644.png";
 import AccountLogo from "../images/account.svg";
-import InputAdornment from "@material-ui/core/InputAdornment";
-import Button from "@material-ui/core/Button";
+// import TextField from "@material-ui/core/TextField";
+// import Paper from "@material-ui/core/Paper";
+// import FormControl from "@material-ui/core/FormControl";
 // import Typography from "@material-ui/core/Typography";
-import Hidden from "@material-ui/core/Hidden";
-import withWidth from "@material-ui/core/withWidth";
-import PropTypes from "prop-types";
-
-import Paper from "@material-ui/core/Paper";
-import Container from "@material-ui/core/Container";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -26,12 +27,18 @@ const useStyles = makeStyles((theme) => ({
     // margin: theme.spacing(3),
     display: "flex",
     flexWrap: "wrap",
-    padding: theme.spacing(2),
+    padding: theme.spacing(5),
 
     width: "100%",
   },
   margin: {
     margin: theme.spacing(2),
+  },
+  marginBottom: {
+    marginBottom: theme.spacing(4),
+  },
+  marginLogo: {
+    marginBottom: theme.spacing(2),
   },
   padding: {
     padding: theme.spacing(2),
@@ -50,25 +57,19 @@ const RegisterForm = () => {
 
   return (
     // <Paper className={classes.root}>
-    <Container fixed>
-      <Paper variant="outlined" elevation={2} className={classes.root}>
+    <Container fixed maxWidth="md">
+      <Paper variant="outlined" elevation={2}>
         <form className={classes.root} noValidate autoComplete="off">
-          <div className="container">
-            <div className="row">
-              <img
-                src={GoogleLogo}
-                alt="GoogleLogo"
-                width="80px"
-                className={classes.imgMargin}
-              ></img>
-            </div>
-            <div className={classes.padding}>
-              <h4> Create your Google Account</h4>
-            </div>
-          </div>
+          <Grid container>
+            <Grid item xs={12} className={classes.marginLogo}>
+              <img src={GoogleLogo} alt="GoogleLogo" width="80px"></img>
+            </Grid>
+
+            <h4 className={classes.marginBottom}>Create your Google Account</h4>
+          </Grid>
           <Grid container direction="row" justify="center" alignItems="center">
             <Grid item xs={12} sm={12} md={6} lg={6} xl={6}>
-              <Grid container spacing={3} className={classes.margin}>
+              <Grid container spacing={3}>
                 <Grid item xs={12} sm={6} md={6} lg={6} xl={6}>
                   <Input
                     id="firstname"
@@ -188,7 +189,7 @@ const RegisterForm = () => {
               </Grid>
             </Grid>
             <Hidden smDown>
-              <Grid item xs={6}>
+              <Grid item xs={12} sm={6} md={6} lg={6} xl={6}>
                 <Grid container align="center" className={classes.margin}>
                   <Grid item xs>
                     <img src={AccountLogo} alt="" width={250} />
