@@ -12,7 +12,10 @@ import GoogleLogo from "../images/google_PNG19644.png";
 import AccountLogo from "../images/account.svg";
 import InputAdornment from "@material-ui/core/InputAdornment";
 import Button from "@material-ui/core/Button";
-import Typography from "@material-ui/core/Typography";
+// import Typography from "@material-ui/core/Typography";
+import Hidden from "@material-ui/core/Hidden";
+import withWidth from "@material-ui/core/withWidth";
+import PropTypes from "prop-types";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -45,7 +48,7 @@ const RegisterForm = () => {
         <div className="row">
           <img
             src={GoogleLogo}
-            alt=""
+            alt="GoogleLogo"
             width="80px"
             className={classes.imgMargin}
           ></img>
@@ -62,7 +65,7 @@ const RegisterForm = () => {
       >
         <Grid item xs>
           <Grid container spacing={2} className={classes.margin}>
-            <Grid item xs={6}>
+            <Grid item xs={12} sm={6} md={6} lg={6} xl={6}>
               <Input
                 id="firstname"
                 name="firstname"
@@ -70,7 +73,7 @@ const RegisterForm = () => {
                 helperText="Write your first name"
               />
             </Grid>
-            <Grid item xs={6}>
+            <Grid item xs={12} sm={6} md={6} lg={6} xl={6}>
               <Input
                 id="secondname"
                 name="secondname"
@@ -78,7 +81,7 @@ const RegisterForm = () => {
                 helperText="Write your last name"
               />
             </Grid>
-            <Grid item xs={12}>
+            <Grid item xs={12} sm={12} md={12} lg={12} xl={12}>
               <Input
                 InputProps={{
                   endAdornment: (
@@ -91,7 +94,22 @@ const RegisterForm = () => {
                 helperText="You can use letters, numbers &amp; periods"
               />
             </Grid>
-            <Grid item xs={5}>
+            <Grid item xs={12}>
+              <Button
+                disableElevation
+                disableRipple
+                href="#text-buttons"
+                style={{
+                  textTransform: "none",
+                  textAlign: "center",
+                  fontSize: "13px",
+                }}
+                color="primary"
+              >
+                Use my current email address instead
+              </Button>
+            </Grid>
+            <Grid item xs={12} sm={5} md={5} lg={5} xl={5}>
               <Input
                 id="password"
                 name="password"
@@ -99,7 +117,7 @@ const RegisterForm = () => {
                 helperText=""
               />
             </Grid>
-            <Grid item xs={5}>
+            <Grid item xs={12} sm={5} md={5} lg={5} xl={5}>
               <Input
                 id="confirmpassword"
                 name="confirmpassword"
@@ -163,20 +181,26 @@ const RegisterForm = () => {
             </Grid>
           </Grid>
         </Grid>
-        <Grid item xs>
-          <Grid container align="center">
-            <Grid item xs>
-              <img src={AccountLogo} alt="" width={250} />
-              <label>
-                One account. All of Google <br />
-                working for you.
-              </label>
+        <Hidden smDown>
+          <Grid item xs={6}>
+            <Grid container align="center" className={classes.margin}>
+              <Grid item xs>
+                <img src={AccountLogo} alt="" width={250} />
+                <label>
+                  One account. All of Google <br />
+                  working for you.
+                </label>
+              </Grid>
             </Grid>
           </Grid>
-        </Grid>
+        </Hidden>
       </Grid>
     </form>
   );
 };
 
-export default RegisterForm;
+RegisterForm.propTypes = {
+  width: PropTypes.oneOf(["lg", "md", "sm", "xl", "xs"]).isRequired,
+};
+
+export default withWidth()(RegisterForm);
