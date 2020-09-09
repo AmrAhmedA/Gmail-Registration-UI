@@ -19,11 +19,11 @@ function App() {
       style={{ minHeight: '100vh' }
         // spacing={5}
       }>
+      <RegisterForm />
       {setTimeout(
         console.log.bind(console, "%c#Amr Ahmed", warningTitleCSS),
         0
       )}
-      <RegisterForm />
     </Grid >);
 }
 
