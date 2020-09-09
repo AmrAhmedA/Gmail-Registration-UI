@@ -7,7 +7,8 @@ import RegisterForm from "./components/registerForm"
 import Grid from "@material-ui/core/Grid";
 
 
-
+const warningTitleCSS =
+  "color:red; font-size:50px; font-weight: bold; -webkit-text-stroke: 1px black;";
 function App() {
 
   return (
@@ -18,7 +19,10 @@ function App() {
       style={{ minHeight: '100vh' }
         // spacing={5}
       }>
-
+      {setTimeout(
+        console.log.bind(console, "%c#Amr Ahmed", warningTitleCSS),
+        0
+      )}
       <RegisterForm />
     </Grid >);
 }
