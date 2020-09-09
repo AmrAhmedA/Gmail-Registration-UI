@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import {
   makeStyles,
   Grid,
@@ -20,6 +20,16 @@ import AccountLogo from "../images/account.svg";
 // import Paper from "@material-ui/core/Paper";
 // import FormControl from "@material-ui/core/FormControl";
 // import Typography from "@material-ui/core/Typography";
+
+const initialValues = {
+  id: 0,
+  firstname: "",
+  secondname: "",
+  email: "",
+  username: "",
+  password: "",
+  confirmpassword: "",
+};
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -52,14 +62,25 @@ const handleClickShowPassword = () => {};
 const handleMouseDownPassword = (event) => {
   event.preventDefault();
 };
+
 const RegisterForm = () => {
   const classes = useStyles();
+
+  const [values, setValues] = useState(initialValues);
+
+  const handleChange = ({ currentTarget: input }) => {
+    const { name, value } = input;
+    setValues({
+      ...values,
+      [name]: value,
+    });
+  };
 
   return (
     // <Paper className={classes.root}>
     <Container fixed maxWidth="md">
       <Paper variant="outlined" elevation={2}>
-        <form className={classes.root} noValidate autoComplete="off">
+        <form className={classes.root}>
           <Grid container>
             <Grid item xs={12} className={classes.marginLogo}>
               <img src={GoogleLogo} alt="GoogleLogo" width="80px"></img>
@@ -76,6 +97,8 @@ const RegisterForm = () => {
                     name="firstname"
                     label="First name"
                     helperText=""
+                    value={values.firstname}
+                    onChange={handleChange}
                   />
                 </Grid>
                 <Grid item xs={12} sm={6} md={6} lg={6} xl={6}>
@@ -84,6 +107,8 @@ const RegisterForm = () => {
                     name="secondname"
                     label="Last name"
                     helperText=""
+                    value={values.secondname}
+                    onChange={handleChange}
                   />
                 </Grid>
                 <Grid item xs={12} sm={12} md={12} lg={12} xl={12}>
@@ -99,6 +124,8 @@ const RegisterForm = () => {
                     name="username"
                     label="Username"
                     helperText="You can use letters, numbers &amp; periods"
+                    value={values.username}
+                    onChange={handleChange}
                   />
                 </Grid>
                 <Grid item xs={12}>
@@ -122,6 +149,8 @@ const RegisterForm = () => {
                     name="password"
                     label="Password"
                     helperText=""
+                    value={values.password}
+                    onChange={handleChange}
                   />
                 </Grid>
                 <Grid item xs={12} sm={5} md={5} lg={5} xl={5}>
@@ -130,6 +159,8 @@ const RegisterForm = () => {
                     name="confirmpassword"
                     label="Confirm"
                     helperText=""
+                    value={values.confirmpassword}
+                    onChange={handleChange}
                   />
                 </Grid>
                 <Grid item xs={2}>
