@@ -1,6 +1,5 @@
-import React, { useState } from "react";
+import React from "react";
 import {
-  makeStyles,
   Grid,
   IconButton,
   InputAdornment,
@@ -13,15 +12,12 @@ import {
 import Visibility from "@material-ui/icons/Visibility";
 import VisibilityOff from "@material-ui/icons/VisibilityOff";
 import PropTypes from "prop-types";
-import Input from "./input";
 import GoogleLogo from "../images/google_PNG19644.png";
 import AccountLogo from "../images/account.svg";
-// import TextField from "@material-ui/core/TextField";
-// import Paper from "@material-ui/core/Paper";
-// import FormControl from "@material-ui/core/FormControl";
-// import Typography from "@material-ui/core/Typography";
+import { Form, UseStyle } from "./form";
+import Input from "./input";
 
-const initialValues = {
+const initialFieldValues = {
   id: 0,
   firstname: "",
   secondname: "",
@@ -29,87 +25,52 @@ const initialValues = {
   username: "",
   password: "",
   confirmpassword: "",
-};
-
-const useStyles = makeStyles((theme) => ({
-  root: {
-    flexGrow: 1,
-    // margin: theme.spacing(3),
-    display: "flex",
-    flexWrap: "wrap",
-    padding: theme.spacing(5),
-
-    width: "100%",
-  },
-  margin: {
-    margin: theme.spacing(2),
-  },
-  marginBottom: {
-    marginBottom: theme.spacing(4),
-  },
-  marginLogo: {
-    marginBottom: theme.spacing(2),
-  },
-  padding: {
-    padding: theme.spacing(2),
-  },
-  imgMargin: {
-    margin: theme.spacing(3),
-  },
-}));
-
-const handleClickShowPassword = () => {};
-const handleMouseDownPassword = (event) => {
-  event.preventDefault();
+  showPassword: false,
 };
 
 const RegisterForm = () => {
-  const classes = useStyles();
+  const {
+    values,
+    handleInputChange,
+    handleSubmit,
+    handleClickShowPassword,
+    handleMouseDownPassword,
+    renderInput,
+  } = Form(initialFieldValues);
 
-  const [values, setValues] = useState(initialValues);
-
-  const handleChange = ({ currentTarget: input }) => {
-    const { name, value } = input;
-    setValues({
-      ...values,
-      [name]: value,
-    });
-  };
+  const { root, margin, marginBottom, marginLogo } = UseStyle();
 
   return (
-    // <Paper className={classes.root}>
+    // <Paper className={root}>
     <Container fixed maxWidth="md">
       <Paper variant="outlined" elevation={2}>
-        <form className={classes.root}>
+        <form className={root} onSubmit={handleSubmit}>
           <Grid container>
-            <Grid item xs={12} className={classes.marginLogo}>
+            <Grid item xs={12} className={marginLogo}>
               <img src={GoogleLogo} alt="GoogleLogo" width="80px"></img>
             </Grid>
-
-            <h4 className={classes.marginBottom}>Create your Google Account</h4>
+            <h4 className={marginBottom}>Create your Google Account</h4>
           </Grid>
           <Grid container direction="row" justify="center" alignItems="center">
             <Grid item xs={12} sm={12} md={6} lg={6} xl={6}>
               <Grid container spacing={3}>
                 <Grid item xs={12} sm={6} md={6} lg={6} xl={6}>
-                  <Input
-                    id="firstname"
-                    name="firstname"
-                    label="First name"
-                    helperText=""
-                    value={values.firstname}
-                    onChange={handleChange}
-                  />
+                  {renderInput(
+                    "firstname",
+                    "firstname",
+                    "First name",
+                    "text",
+                    ""
+                  )}
                 </Grid>
                 <Grid item xs={12} sm={6} md={6} lg={6} xl={6}>
-                  <Input
-                    id="secondname"
-                    name="secondname"
-                    label="Last name"
-                    helperText=""
-                    value={values.secondname}
-                    onChange={handleChange}
-                  />
+                  {renderInput(
+                    "secondname",
+                    "secondname",
+                    "Last name",
+                    "text",
+                    ""
+                  )}
                 </Grid>
                 <Grid item xs={12} sm={12} md={12} lg={12} xl={12}>
                   <Input
@@ -123,9 +84,10 @@ const RegisterForm = () => {
                     id="username"
                     name="username"
                     label="Username"
+                    type="text"
                     helperText="You can use letters, numbers &amp; periods"
                     value={values.username}
-                    onChange={handleChange}
+                    onChange={handleInputChange}
                   />
                 </Grid>
                 <Grid item xs={12}>
@@ -144,24 +106,22 @@ const RegisterForm = () => {
                   </Button>
                 </Grid>
                 <Grid item xs={12} sm={5} md={5} lg={5} xl={5}>
-                  <Input
-                    id="password"
-                    name="password"
-                    label="Password"
-                    helperText=""
-                    value={values.password}
-                    onChange={handleChange}
-                  />
+                  {renderInput(
+                    "password",
+                    "password",
+                    "Password",
+                    values.showPassword ? "text" : "password",
+                    ""
+                  )}
                 </Grid>
                 <Grid item xs={12} sm={5} md={5} lg={5} xl={5}>
-                  <Input
-                    id="confirmpassword"
-                    name="confirmpassword"
-                    label="Confirm"
-                    helperText=""
-                    value={values.confirmpassword}
-                    onChange={handleChange}
-                  />
+                  {renderInput(
+                    "confirmpassword",
+                    "confirmpassword",
+                    "Confirm",
+                    values.showPassword ? "text" : "password",
+                    ""
+                  )}
                 </Grid>
                 <Grid item xs={2}>
                   <IconButton
@@ -172,7 +132,7 @@ const RegisterForm = () => {
                     onClick={handleClickShowPassword}
                     onMouseDown={handleMouseDownPassword}
                   >
-                    {true ? <Visibility /> : <VisibilityOff />}
+                    {values.showPassword ? <Visibility /> : <VisibilityOff />}
                   </IconButton>
                 </Grid>
                 <Grid item xs={12}>
@@ -221,7 +181,7 @@ const RegisterForm = () => {
             </Grid>
             <Hidden smDown>
               <Grid item xs={12} sm={6} md={6} lg={6} xl={6}>
-                <Grid container align="center" className={classes.margin}>
+                <Grid container align="center" className={margin}>
                   <Grid item xs>
                     <img src={AccountLogo} alt="" width={250} />
                     <label>
@@ -238,7 +198,6 @@ const RegisterForm = () => {
     </Container>
   );
 };
-
 RegisterForm.propTypes = {
   width: PropTypes.oneOf(["lg", "md", "sm", "xl", "xs"]).isRequired,
 };
