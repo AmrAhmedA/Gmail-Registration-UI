@@ -1,0 +1,27 @@
+{
+  "files": {
+    "main.css": "/Gmail-Registration-UI/static/css/main.5f361e03.chunk.css",
+    "main.js": "/Gmail-Registration-UI/static/js/main.6cccc9ef.chunk.js",
+    "main.js.map": "/Gmail-Registration-UI/static/js/main.6cccc9ef.chunk.js.map",
+    "runtime-main.js": "/Gmail-Registration-UI/static/js/runtime-main.62e158d5.js",
+    "runtime-main.js.map": "/Gmail-Registration-UI/static/js/runtime-main.62e158d5.js.map",
+    "static/css/2.8aa5a7f8.chunk.css": "/Gmail-Registration-UI/static/css/2.8aa5a7f8.chunk.css",
+    "static/js/2.4483eda7.chunk.js": "/Gmail-Registration-UI/static/js/2.4483eda7.chunk.js",
+    "static/js/2.4483eda7.chunk.js.map": "/Gmail-Registration-UI/static/js/2.4483eda7.chunk.js.map",
+    "index.html": "/Gmail-Registration-UI/index.html",
+    "precache-manifest.83c2890beee540608a947d423fae3f99.js": "/Gmail-Registration-UI/precache-manifest.83c2890beee540608a947d423fae3f99.js",
+    "service-worker.js": "/Gmail-Registration-UI/service-worker.js",
+    "static/css/2.8aa5a7f8.chunk.css.map": "/Gmail-Registration-UI/static/css/2.8aa5a7f8.chunk.css.map",
+    "static/css/main.5f361e03.chunk.css.map": "/Gmail-Registration-UI/static/css/main.5f361e03.chunk.css.map",
+    "static/js/2.4483eda7.chunk.js.LICENSE.txt": "/Gmail-Registration-UI/static/js/2.4483eda7.chunk.js.LICENSE.txt",
+    "static/media/account.svg": "/Gmail-Registration-UI/static/media/account.f766a72d.svg",
+    "static/media/google_PNG19644.png": "/Gmail-Registration-UI/static/media/google_PNG19644.10cdc2cf.png"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.62e158d5.js",
+    "static/css/2.8aa5a7f8.chunk.css",
+    "static/js/2.4483eda7.chunk.js",
+    "static/css/main.5f361e03.chunk.css",
+    "static/js/main.6cccc9ef.chunk.js"
+  ]
+}
