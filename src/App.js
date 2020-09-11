@@ -9,6 +9,11 @@ import Grid from "@material-ui/core/Grid";
 
 const warningTitleCSS =
   "color:red; font-size:50px; font-weight: bold; -webkit-text-stroke: 1px black;";
+setTimeout(
+  console.log.bind(console, "%c#Amr Ahmed", warningTitleCSS),
+  0
+)
+
 function App() {
 
   return (
@@ -20,11 +25,8 @@ function App() {
         // spacing={5}
       }>
       <RegisterForm />
-      {setTimeout(
-        console.log.bind(console, "%c#Amr Ahmed", warningTitleCSS),
-        0
-      )}
     </Grid >);
+
 }
 
 export default App;
